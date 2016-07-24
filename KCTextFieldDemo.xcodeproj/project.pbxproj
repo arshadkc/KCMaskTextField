@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFCAC08E1D44A2D100FD8DAA /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCAC08D1D44A2D100FD8DAA /* CustomViewController.swift */; };
+		EFD5618E1D3F59F000B55CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5618D1D3F59F000B55CFF /* AppDelegate.swift */; };
+		EFD561901D3F59F000B55CFF /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5618F1D3F59F000B55CFF /* DemoViewController.swift */; };
+		EFD561931D3F59F000B55CFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD561911D3F59F000B55CFF /* Main.storyboard */; };
+		EFD561951D3F59F000B55CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD561941D3F59F000B55CFF /* Assets.xcassets */; };
+		EFD561981D3F59F000B55CFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD561961D3F59F000B55CFF /* LaunchScreen.storyboard */; };
+		EFD561A01D3F5A0D00B55CFF /* KCMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5619F1D3F5A0D00B55CFF /* KCMaskTextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EFCAC08D1D44A2D100FD8DAA /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		EFD5618A1D3F59F000B55CFF /* KCTextFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KCTextFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD5618D1D3F59F000B55CFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFD5618F1D3F59F000B55CFF /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		EFD561921D3F59F000B55CFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFD561941D3F59F000B55CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFD561971D3F59F000B55CFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFD561991D3F59F000B55CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD5619F1D3F5A0D00B55CFF /* KCMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCMaskTextField.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFD561871D3F59F000B55CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFD561811D3F59F000B55CFF = {
+			isa = PBXGroup;
+			children = (
+				EFD5618C1D3F59F000B55CFF /* DateTextFieldDemo */,
+				EFD5618B1D3F59F000B55CFF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFD5618B1D3F59F000B55CFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFD5618A1D3F59F000B55CFF /* KCTextFieldDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFD5618C1D3F59F000B55CFF /* DateTextFieldDemo */ = {
+			isa = PBXGroup;
+			children = (
+				EFD5618D1D3F59F000B55CFF /* AppDelegate.swift */,
+				EFD5618F1D3F59F000B55CFF /* DemoViewController.swift */,
+				EFCAC08D1D44A2D100FD8DAA /* CustomViewController.swift */,
+				EFD561911D3F59F000B55CFF /* Main.storyboard */,
+				EFD561941D3F59F000B55CFF /* Assets.xcassets */,
+				EFD561961D3F59F000B55CFF /* LaunchScreen.storyboard */,
+				EFD561991D3F59F000B55CFF /* Info.plist */,
+				EFD5619F1D3F5A0D00B55CFF /* KCMaskTextField.swift */,
+			);
+			path = DateTextFieldDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFD561891D3F59F000B55CFF /* KCTextFieldDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFD5619C1D3F59F000B55CFF /* Build configuration list for PBXNativeTarget "KCTextFieldDemo" */;
+			buildPhases = (
+				EFD561861D3F59F000B55CFF /* Sources */,
+				EFD561871D3F59F000B55CFF /* Frameworks */,
+				EFD561881D3F59F000B55CFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KCTextFieldDemo;
+			productName = DateTextFieldDemo;
+			productReference = EFD5618A1D3F59F000B55CFF /* KCTextFieldDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFD561821D3F59F000B55CFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Arshad KC";
+				TargetAttributes = {
+					EFD561891D3F59F000B55CFF = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = EFD561851D3F59F000B55CFF /* Build configuration list for PBXProject "KCTextFieldDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFD561811D3F59F000B55CFF;
+			productRefGroup = EFD5618B1D3F59F000B55CFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFD561891D3F59F000B55CFF /* KCTextFieldDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFD561881D3F59F000B55CFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD561981D3F59F000B55CFF /* LaunchScreen.storyboard in Resources */,
+				EFD561951D3F59F000B55CFF /* Assets.xcassets in Resources */,
+				EFD561931D3F59F000B55CFF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFD561861D3F59F000B55CFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD561901D3F59F000B55CFF /* DemoViewController.swift in Sources */,
+				EFD561A01D3F5A0D00B55CFF /* KCMaskTextField.swift in Sources */,
+				EFD5618E1D3F59F000B55CFF /* AppDelegate.swift in Sources */,
+				EFCAC08E1D44A2D100FD8DAA /* CustomViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EFD561911D3F59F000B55CFF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFD561921D3F59F000B55CFF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFD561961D3F59F000B55CFF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFD561971D3F59F000B55CFF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFD5619A1D3F59F000B55CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFD5619B1D3F59F000B55CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFD5619D1D3F59F000B55CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DateTextFieldDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d.DateTextFieldDemo;
+				PRODUCT_NAME = KCTextFieldDemo;
+			};
+			name = Debug;
+		};
+		EFD5619E1D3F59F000B55CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DateTextFieldDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d.DateTextFieldDemo;
+				PRODUCT_NAME = KCTextFieldDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFD561851D3F59F000B55CFF /* Build configuration list for PBXProject "KCTextFieldDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD5619A1D3F59F000B55CFF /* Debug */,
+				EFD5619B1D3F59F000B55CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFD5619C1D3F59F000B55CFF /* Build configuration list for PBXNativeTarget "KCTextFieldDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD5619D1D3F59F000B55CFF /* Debug */,
+				EFD5619E1D3F59F000B55CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFD561821D3F59F000B55CFF /* Project object */;
+}
