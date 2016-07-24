@@ -1,2 +1,3 @@
 # KCMaskTextField
 
+![Screenshot](demo.gif)
