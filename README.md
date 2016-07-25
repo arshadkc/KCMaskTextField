@@ -36,7 +36,7 @@ h	: Hexadecimal symbol
 
 .	: Corresponds to any symbol (default)
 
-*	: Non editable field
+\*	: Non editable field
 
 ### Case 
 
