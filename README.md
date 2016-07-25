@@ -64,7 +64,7 @@ A - Upper case
 
 `@IBInspectable var delimiterColor:UIColor`
 
-Changes the color of Non-ediatble characters. ex: /,/ in DD/MM/YY
+Changes the color of Non-editable characters. ex: /,/ in DD/MM/YY
 
 ### Format color
 
