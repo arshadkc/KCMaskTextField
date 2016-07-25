@@ -54,7 +54,7 @@ case   : AAAA-aaaa-AaAa
 
 output : ABCD-abcd-AbCd
 
-You can provide case value for each character in the format or it can take just one character which can either be 'a' or 'A' and it will effect the whole input string.
+You can provide case value for each character in the format or it can take just one character and it will effect the complete input string.
 
 a - Small case
 
