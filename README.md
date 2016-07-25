@@ -34,7 +34,7 @@ C   : Not an alphanumeric symbol
 
 h	: Hexadecimal symbol
 
-.	: Corresponds to any symbol (default)
+.	: Corresponds to any symbol
 
 \*	: Non editable field
 
@@ -78,4 +78,13 @@ Changes the color of format characters. ex: DD,MM and YY in DD/MM/YY
 
 Changes the color of edited characters. ex: 22,01,17 in 22/01/17
 
+### Author
+
+Arshad
+
+Mail: [arshadkc@gmail.com](mailto:arshadkc@gmail.com)
+
+### License
+
+Released under the [MIT license](http://www.opensource.org/licenses/MIT)
 
