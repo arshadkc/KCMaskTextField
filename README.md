@@ -14,7 +14,7 @@ Download/Clone this project and copy KCMaskTextField.swift file to your project.
 
 Example :
 
-setFormat("MM/DD/YY", mask: "dd/dd/dd")
+setFormat("MM/DD/YY", mask: "dd\*dd\*dd")
 
 setFormat("[ XXXX-XXXX-XXXX-XXXX ]", mask: "\*\*dddd\*dddd\*dddd\*dddd\*\*")
 
@@ -46,7 +46,7 @@ Example :
 
 format : ABCD-EFGH-IJKL
 
-mask   : aaaa-aaaa-aaaa
+mask   : aaaa\*aaaa\*aaaa
 
 case   : AAAA-aaaa-AaAa
 
