@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 enum KCMaskTextFieldStatus {
-    case Clear
-    case Incomplete
-    case Complete
+    case clear
+    case incomplete
+    case complete
 }
 
 struct Delimiter {
@@ -39,14 +39,14 @@ struct KCChar {
 
 class KCMaskTextField: UITextField {
     // Private
-    private var chars:Array<KCChar> = Array<KCChar>()
-    private var previousCursorPosition = 0
+    fileprivate var chars:Array<KCChar> = Array<KCChar>()
+    fileprivate var previousCursorPosition = 0
     
     // Delegate
     var maskDelegate: KCMaskFieldDelegate?
     
     // Color for mask values. ex: DD,MM and YY in DD/MM/YY
-    @IBInspectable var formatColor:UIColor = UIColor.grayColor(){
+    @IBInspectable var formatColor:UIColor = UIColor.gray{
         didSet {
             displayFormattedText()
             moveCursorTo(previousCursorPosition)
@@ -54,7 +54,7 @@ class KCMaskTextField: UITextField {
     }
     
     // Color for delimiterColor values. ex: /,/ in DD/MM/YY
-    @IBInspectable var delimiterColor:UIColor = UIColor.grayColor(){
+    @IBInspectable var delimiterColor:UIColor = UIColor.gray{
         didSet {
             displayFormattedText()
             moveCursorTo(previousCursorPosition)
@@ -62,7 +62,7 @@ class KCMaskTextField: UITextField {
     }
     
     // Color for editable values. ex: 22,01,17 in 22/01/17
-    @IBInspectable var editableColor:UIColor = UIColor.blackColor(){
+    @IBInspectable var editableColor:UIColor = UIColor.black{
         didSet {
             displayFormattedText()
             moveCursorTo(previousCursorPosition)
@@ -100,13 +100,13 @@ class KCMaskTextField: UITextField {
         }
     }
 
-    private func initialize() {
+    fileprivate func initialize() {
         // Set delegate ot self
         self.delegate = self
         chars.removeAll()
-        for (index,c) in formatString.characters.enumerate() {
+        for (index,c) in formatString.characters.enumerated() {
             // Create KCChar
-            let m = index < maskString.characters.count ? maskString.characters[formatString.characters.startIndex.advancedBy(index)] : "."
+            let m = index < maskString.characters.count ? maskString.characters[formatString.characters.index(formatString.characters.startIndex, offsetBy: index)] : "."
             let sq = KCChar(format: c, type:m)
             chars.append(sq)
         }
@@ -125,7 +125,7 @@ extension KCMaskTextField {
     func status() -> KCMaskTextFieldStatus {
         let editableChars = chars.filter {$0.isEditable}
         let completedChar = editableChars.filter {!$0.isClear}.count
-        return completedChar == editableChars.count ? .Complete : completedChar == 0 ? .Clear : .Incomplete
+        return completedChar == editableChars.count ? .complete : completedChar == 0 ? .clear : .incomplete
     }
 
     /**
@@ -135,7 +135,7 @@ extension KCMaskTextField {
         var components = [String]()
         var str = String()
         var count  = 0
-        for (index,ch) in chars.enumerate() {
+        for (index,ch) in chars.enumerated() {
             if ch.isEditable {
                 str = str + (ch.isClear ? "" : String(ch.value))
                 count += 1
@@ -154,31 +154,31 @@ extension KCMaskTextField {
      Returns the string displayed in the mask field as it is.
      */
     func rawText() -> String {
-        return chars.map {String($0.value)}.reduce("", combine: {$0 + $1})
+        return chars.map {String($0.value)}.reduce("", {$0 + $1})
     }
     
     /**
      Returns the values entered in mask field.
      */
     func editedText() -> String {
-        return chars.filter{$0.isEditable && !$0.isClear}.map{String($0.value)}.reduce("", combine: {$0 + $1})
+        return chars.filter{$0.isEditable && !$0.isClear}.map{String($0.value)}.reduce("", {$0 + $1})
     }
     
     /**
      Updates the text
      */
-    func updateText(text:String) {
+    func updateText(_ text:String) {
         guard text.characters.count > 0 else {
             return
         }
-        textField(self, shouldChangeCharactersInRange: NSMakeRange(0,0), replacementString: text)
+        textField(self, shouldChangeCharactersIn: NSMakeRange(0,0), replacementString: text)
     }
     
     /**
      Clears the text. This does not clear any format/mask/case.
      */
     func clearText() {
-        for (index,ch) in chars.enumerate() {
+        for (index,ch) in chars.enumerated() {
             if !ch.isClear {
                 chars[index].value = chars[index].format
                 chars[index].isClear = true
@@ -192,7 +192,7 @@ extension KCMaskTextField {
     /**
      Sets format and mask for mask field
      */
-    func setFormat(format:String, mask:String) {
+    func setFormat(_ format:String, mask:String) {
         formatString = format
         maskString = mask
     }
@@ -200,16 +200,16 @@ extension KCMaskTextField {
 
 //  MARK: - Textfield Delegate
 extension KCMaskTextField: UITextFieldDelegate {
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         moveCursorTo(previousCursorPosition)
         maskDelegate?.maskFieldDidBeginEditing(self)
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         maskDelegate?.maskFieldDidEndEditing(self)
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // guard out of bounds
         guard range.location < chars.count else {
             return false
@@ -218,7 +218,7 @@ extension KCMaskTextField: UITextFieldDelegate {
         return false
     }
     
-    private func formatInput(string:String, range:NSRange) {
+    fileprivate func formatInput(_ string:String, range:NSRange) {
         var nextCursorPosition = range.location
         let inputLength = string.characters.count
         var edited = false
@@ -230,7 +230,7 @@ extension KCMaskTextField: UITextFieldDelegate {
             let end = start + (range.length == 0 ? string.characters.count : range.length >= string.characters.count ? string.characters.count : range.length)
             var index = 0
             for _ in start ..< end{
-                let c = string[string.startIndex.advancedBy(index)]
+                let c = string[string.characters.index(string.startIndex, offsetBy: index)]
                 if let location = findLocationForward(fromLocation: nextValidLocation) {
                     if hasSelection && location >= end {
                         break
@@ -286,15 +286,15 @@ extension KCMaskTextField: UITextFieldDelegate {
         }
     }
     
-    private func moveCursorTo(position:Int) {
-        if let newCursorPosition = self.positionFromPosition(self.beginningOfDocument, offset:position) {
-            let newSelectedRange = self.textRangeFromPosition(newCursorPosition, toPosition:newCursorPosition)
+    fileprivate func moveCursorTo(_ position:Int) {
+        if let newCursorPosition = self.position(from: self.beginningOfDocument, offset:position) {
+            let newSelectedRange = self.textRange(from: newCursorPosition, to:newCursorPosition)
             self.selectedTextRange = newSelectedRange
         }
         previousCursorPosition = position
     }
     
-    private func findLocationForward(fromLocation location:Int) -> Int? {
+    fileprivate func findLocationForward(fromLocation location:Int) -> Int? {
         var nextLocation:Int?
         for i in location ..< chars.count {
             if chars[i].isEditable {
@@ -305,9 +305,9 @@ extension KCMaskTextField: UITextFieldDelegate {
         return nextLocation
     }
     
-    private func findLocationBackward(fromLocation location:Int) -> Int? {
+    fileprivate func findLocationBackward(fromLocation location:Int) -> Int? {
         var nextLocation:Int?
-        for i in location.stride(to: -1, by: -1) {
+        for i in stride(from: location, to: -1, by: -1) {
             if chars[i].isEditable {
                 nextLocation = i
                 break
@@ -320,15 +320,15 @@ extension KCMaskTextField: UITextFieldDelegate {
 
 //  MARK: - Display
 extension KCMaskTextField {
-    private func displayFormattedText() {
+    fileprivate func displayFormattedText() {
         // clear placeholder 
         placeholder = ""
         
-        let myAttribute = [ NSForegroundColorAttributeName : UIColor.blackColor() ]
+        let myAttribute = [ NSForegroundColorAttributeName : UIColor.black ]
         let mString = NSMutableAttributedString(string: "", attributes: myAttribute )
 
-        for (index,ch) in chars.enumerate() {
-            var color  = UIColor.blackColor()
+        for (index,ch) in chars.enumerated() {
+            var color  = UIColor.black
             if !ch.isEditable {
                 color = delimiterColor
             }
@@ -342,14 +342,14 @@ extension KCMaskTextField {
             
             // Update character case
             if ch.isEditable && !ch.isClear {
-                let caseFormat:Character? = caseString.characters.count == 1 ? caseString.characters.first! : (index < caseString.characters.count ? caseString.characters[caseString.characters.startIndex.advancedBy(index)] : nil)
+                let caseFormat:Character? = caseString.characters.count == 1 ? caseString.characters.first! : (index < caseString.characters.count ? caseString.characters[caseString.characters.index(caseString.characters.startIndex, offsetBy: index)] : nil)
                 if let c = caseFormat {
                     switch c {
                     case "a":
-                        s = s.lowercaseString
+                        s = s.lowercased()
                         chars[index].value = s.characters.first!
                     case "A":
-                        s = s.uppercaseString
+                        s = s.uppercased()
                         chars[index].value = s.characters.first!
                     default:
                         break
@@ -358,7 +358,7 @@ extension KCMaskTextField {
             }
             
             let aString = NSAttributedString(string: s, attributes: [NSForegroundColorAttributeName:color])
-            mString.appendAttributedString(aString)
+            mString.append(aString)
         }
         self.attributedText = mString
     }
@@ -376,31 +376,31 @@ extension KCMaskTextField {
 //     .	: Corresponds to any symbol (default)
 //     *	: Non editable field
 extension KCMaskTextField {
-    private func isValidCharacter(character:Character, atIndex index:Int) -> Bool {
+    fileprivate func isValidCharacter(_ character:Character, atIndex index:Int) -> Bool {
         let char = chars[index]
         let uni = String(character).unicodeScalars
         var isValidType = false
         switch char.type {
         case "d":
-            isValidType = NSCharacterSet.decimalDigitCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = CharacterSet.decimalDigits.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "D":
-            isValidType = !NSCharacterSet.decimalDigitCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = !CharacterSet.decimalDigits.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "A":
-            isValidType = !NSCharacterSet.letterCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = !CharacterSet.letters.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "a":
-            isValidType = NSCharacterSet.letterCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = CharacterSet.letters.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "c":
-            isValidType = NSCharacterSet.alphanumericCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = CharacterSet.alphanumerics.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "C":
-            isValidType = !NSCharacterSet.alphanumericCharacterSet().longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = !CharacterSet.alphanumerics.contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case "h":
-            isValidType = NSCharacterSet(charactersInString: "0123456789abcdefABCDEF").longCharacterIsMember(uni[uni.startIndex].value)
+            isValidType = CharacterSet(charactersIn: "0123456789abcdefABCDEF").contains(UnicodeScalar(uni[uni.startIndex].value)!)
             break
         case ".":
             isValidType = true
@@ -417,20 +417,20 @@ extension KCMaskTextField {
 protocol KCMaskFieldDelegate : class  {
     
     /// Tells the delegate that editing began for the specified mask field.
-    func maskFieldDidBeginEditing(maskField: KCMaskTextField)
+    func maskFieldDidBeginEditing(_ maskField: KCMaskTextField)
     
     /// Tells the delegate that editing finished for the specified mask field.
-    func maskFieldDidEndEditing(maskField: KCMaskTextField)
+    func maskFieldDidEndEditing(_ maskField: KCMaskTextField)
     
     /// Tells the delegate that specified mask field change text.
-    func maskFieldDidChangeCharacter(maskField: KCMaskTextField)
+    func maskFieldDidChangeCharacter(_ maskField: KCMaskTextField)
 }
 
 extension KCMaskFieldDelegate {
 
-    func maskFieldDidBeginEditing(maskField: KCMaskTextField) {}
+    func maskFieldDidBeginEditing(_ maskField: KCMaskTextField) {}
     
-    func maskFieldDidEndEditing(maskField: KCMaskTextField) {}
+    func maskFieldDidEndEditing(_ maskField: KCMaskTextField) {}
     
-    func maskFieldDidChangeCharacter(maskField: KCMaskTextField) {}
+    func maskFieldDidChangeCharacter(_ maskField: KCMaskTextField) {}
 }

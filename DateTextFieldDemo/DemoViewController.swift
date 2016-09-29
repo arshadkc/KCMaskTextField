@@ -81,23 +81,23 @@ class DemoViewController: UIViewController {
         
         hexColorField.maskDelegate = self
         hexColorField.setFormat(Formation.HexColor.format1, mask: Formation.HexColor.mask)
-        hexColorField.delimiterColor = UIColor.blackColor()
+        hexColorField.delimiterColor = UIColor.black
         
         creditCardNumberField.maskDelegate = self
         creditCardNumberField.setFormat(Formation.CreditCardVisa.format1, mask: Formation.CreditCardVisa.mask)
-        creditCardNumberField.formatColor = UIColor.orangeColor()
+        creditCardNumberField.formatColor = UIColor.orange
 
         creditCardExpiryField.maskDelegate = self
         creditCardExpiryField.setFormat(Formation.CreditCardExpiry.format1, mask: Formation.CreditCardExpiry.mask)
-        creditCardExpiryField.formatColor = UIColor.orangeColor()
+        creditCardExpiryField.formatColor = UIColor.orange
         
         creditCardCVVField.maskDelegate = self
         creditCardCVVField.setFormat(Formation.CreditCardCVV.format1, mask: Formation.CreditCardCVV.mask)
-        creditCardCVVField.formatColor = UIColor.orangeColor()
+        creditCardCVVField.formatColor = UIColor.orange
         
         phoneNumberField.maskDelegate = self
         phoneNumberField.setFormat(Formation.PhoneNumber.format1, mask: Formation.PhoneNumber.mask)
-        phoneNumberField.delimiterColor = UIColor.blueColor()
+        phoneNumberField.delimiterColor = UIColor.blue
         
         customField.maskDelegate = self
         customField.setFormat(Formation.Custom.format, mask: Formation.Custom.mask)
@@ -109,7 +109,7 @@ class DemoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onClearAll(sender: AnyObject) {
+    @IBAction func onClearAll(_ sender: AnyObject) {
         dateTextField.clearText()
         updateUI(dateTextField)
         
@@ -139,18 +139,18 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController:KCMaskFieldDelegate {
-    func maskFieldDidBeginEditing(maskField: KCMaskTextField) {
+    func maskFieldDidBeginEditing(_ maskField: KCMaskTextField) {
         updateUI(maskField)
     }
     
-    func maskFieldDidEndEditing(maskField: KCMaskTextField) {
+    func maskFieldDidEndEditing(_ maskField: KCMaskTextField) {
     }
     
-    func maskFieldDidChangeCharacter(maskField: KCMaskTextField) {
+    func maskFieldDidChangeCharacter(_ maskField: KCMaskTextField) {
         updateUI(maskField)
     }
     
-    private func updateUI(maskField:KCMaskTextField) {
+    fileprivate func updateUI(_ maskField:KCMaskTextField) {
         
         editedLabel.text = "Edited Text: \(maskField.editedText())"
         rawLabel.text = "Raw: \(maskField.rawText())"
@@ -160,14 +160,14 @@ extension DemoViewController:KCMaskFieldDelegate {
         
         let status  = maskField.status()
         // Status
-        var statusColor =  UIColor.clearColor()
+        var statusColor =  UIColor.clear
         switch status {
-            case .Clear:
-                statusColor = UIColor.lightGrayColor()
-            case .Incomplete:
-                statusColor = UIColor.redColor()
-            case .Complete:
-                statusColor = UIColor.greenColor()
+            case .clear:
+                statusColor = UIColor.lightGray
+            case .incomplete:
+                statusColor = UIColor.red
+            case .complete:
+                statusColor = UIColor.green
         }
         
         if maskField == dateTextField {
@@ -175,16 +175,16 @@ extension DemoViewController:KCMaskFieldDelegate {
         }
         else if maskField == hexColorField {
             hexColorStatusView.backgroundColor = statusColor
-            if maskField.status() == .Complete {
+            if maskField.status() == .complete {
                 let text = maskField.editedText()
                 
-                let c1 = text[text.startIndex ..< text.startIndex.advancedBy(2)]
+                let c1 = text[text.startIndex ..< text.characters.index(text.startIndex, offsetBy: 2)]
                 let r = Int(c1, radix: 16)
-                let c2 = text[text.startIndex.advancedBy(2) ..< text.startIndex.advancedBy(4)]
+                let c2 = text[text.characters.index(text.startIndex, offsetBy: 2) ..< text.characters.index(text.startIndex, offsetBy: 4)]
                 let g = Int(c2, radix: 16)
-                let c3 = text[text.startIndex.advancedBy(2) ..< text.startIndex.advancedBy(6)]
+                let c3 = text[text.characters.index(text.startIndex, offsetBy: 2) ..< text.characters.index(text.startIndex, offsetBy: 6)]
                 let b = Int(c3, radix: 16)
-                let c4 = text[text.startIndex.advancedBy(2) ..< text.startIndex.advancedBy(8)]
+                let c4 = text[text.characters.index(text.startIndex, offsetBy: 2) ..< text.characters.index(text.startIndex, offsetBy: 8)]
                 let a = Int(c4, radix: 16)
                 
                 let color = UIColor(colorLiteralRed: Float(r!)/255.0, green: Float(g!)/255.0, blue: Float(b!)/255.0, alpha: Float(a!)/255.0)

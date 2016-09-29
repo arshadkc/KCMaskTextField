@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					EFD561891D3F59F000B55CFF = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -271,6 +272,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = d.DateTextFieldDemo;
 				PRODUCT_NAME = KCTextFieldDemo;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -282,6 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = d.DateTextFieldDemo;
 				PRODUCT_NAME = KCTextFieldDemo;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

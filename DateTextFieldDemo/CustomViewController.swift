@@ -47,9 +47,9 @@ class CustomViewController: UIViewController {
 }
 
 extension CustomViewController: UITextFieldDelegate {
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let str = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
         maskTextField.clearText()
         
@@ -70,18 +70,18 @@ extension CustomViewController: UITextFieldDelegate {
 }
 
 extension CustomViewController: KCMaskFieldDelegate {
-    func maskFieldDidChangeCharacter(maskField: KCMaskTextField) {
+    func maskFieldDidChangeCharacter(_ maskField: KCMaskTextField) {
         let comp = maskField.textComponents()
         let status = maskField.status()
         // Status
-        var statusColor =  UIColor.clearColor()
+        var statusColor =  UIColor.clear
         switch status {
-        case .Clear:
-            statusColor = UIColor.lightGrayColor()
-        case .Incomplete:
-            statusColor = UIColor.redColor()
-        case .Complete:
-            statusColor = UIColor.greenColor()
+        case .clear:
+            statusColor = UIColor.lightGray
+        case .incomplete:
+            statusColor = UIColor.red
+        case .complete:
+            statusColor = UIColor.green
         }
         
         statusView.backgroundColor = statusColor
